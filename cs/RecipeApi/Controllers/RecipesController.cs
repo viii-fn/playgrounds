@@ -31,7 +31,7 @@ public class RecipesController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<RecipeDto>> Create(CreateRecipeRequest)
+    public async Task<ActionResult<RecipeDto>> Create(CreateRecipeRequest request)
     {
         var recipe = new Recipe
         {
