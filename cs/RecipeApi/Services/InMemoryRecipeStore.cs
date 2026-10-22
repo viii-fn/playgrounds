@@ -2,7 +2,7 @@ using RecipeApi.Models;
 
 namespace RecipeApi.Services;
 
-public class InMemoryRecipeStore : InMemoryRecipeStore
+public class InMemoryRecipeStore : IRecipeStore
 {
     private readonly List<Recipe> _items = new();
     private int _nextId = 1;
