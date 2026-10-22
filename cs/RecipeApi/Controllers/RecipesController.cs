@@ -10,5 +10,48 @@ namespace RecipeApi.Controllers;
 
 public class RecipesController : ControllerBase
 {
+    private readonly IRecipeStore _store;
+
+    public RecipesController(IRecipeStore store)
+    {
+        _store = store;
+    }
+
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<RecipeDtoo>> GetById(int id)
+    {
+        var recipe = await _store.GetByIdAsync(id);
+
+        if (recipe is null)
+        {
+            return NotFound();
+        }
+
+        return Ok(ToDto(recipe));
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<RecipeDto>> Create(CreateRecipeRequest)
+    {
+        var recipe = new Recipe
+        {
+            Title = request.Title,
+            Description = request.Description
+        };
+
+        var created = await _store.AddAsync(recipe);
+
+        return CreatedAtAction(nameof(GetById), new { id = created.Id }, ToDto(created));
+    }
+
+    [HttpDelete("{id:int}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var deleted = await _store.DeleteAsync(id);
+
+        return deleted ? NoContent() : NotFound();
+    }
     
+    private static RecipeDto ToDto(Recipe r) =>
+        new RecipeDto(r.Id, r.Title, r.Description, r.CreatedAt);
 }
