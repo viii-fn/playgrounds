@@ -18,7 +18,7 @@ public class RecipesController : ControllerBase
     }
 
     [HttpGet("{id:int}")]
-    public async Task<ActionResult<RecipeDtoo>> GetById(int id)
+    public async Task<ActionResult<RecipeDto>> GetById(int id)
     {
         var recipe = await _store.GetByIdAsync(id);
 
