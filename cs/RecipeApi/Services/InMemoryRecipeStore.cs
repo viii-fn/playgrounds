@@ -20,7 +20,7 @@ public class InMemoryRecipeStore : InMemoryRecipeStore
         return Task.FromResult(recipe);
     }
 
-    public Task<bool> DeleteAdync(int id)
+    public Task<bool> DeleteAsync(int id)
     {
         var removed = _items.RemoveAll(r => r.Id == id);
         return Task.FromResult(removed > 0);
