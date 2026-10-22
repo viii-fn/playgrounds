@@ -10,5 +10,5 @@ public record CreateRecipeRequest
     public string Title { get; init; } = string.Empty;
 
     [StringLength(2000)]
-    public string Title { get; init; } = string.Empty;
+    public string Description { get; init; } = string.Empty;
 }
