@@ -53,5 +53,5 @@ public class RecipesController : ControllerBase
     }
     
     private static RecipeDtos ToDto(Recipe r) =>
-        new RecipeDtoss(r.Id, r.Title, r.Description, r.CreatedAt);
+        new RecipeDtos(r.Id, r.Title, r.Description, r.CreatedAt);
 }
