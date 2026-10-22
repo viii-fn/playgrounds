@@ -18,7 +18,7 @@ public class RecipesController : ControllerBase
     }
 
     [HttpGet("{id:int}")]
-    public async Task<ActionResult<RecipeDto>> GetById(int id)
+    public async Task<ActionResult<RecipeDtos>> GetById(int id)
     {
         var recipe = await _store.GetByIdAsync(id);
 
@@ -31,7 +31,7 @@ public class RecipesController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<RecipeDto>> Create(CreateRecipeRequest request)
+    public async Task<ActionResult<RecipeDtos>> Create(CreateRecipeRequest request)
     {
         var recipe = new Recipe
         {
@@ -52,6 +52,6 @@ public class RecipesController : ControllerBase
         return deleted ? NoContent() : NotFound();
     }
     
-    private static RecipeDto ToDto(Recipe r) =>
-        new RecipeDto(r.Id, r.Title, r.Description, r.CreatedAt);
+    private static RecipeDtos ToDto(Recipe r) =>
+        new RecipeDtoss(r.Id, r.Title, r.Description, r.CreatedAt);
 }
