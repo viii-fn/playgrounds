@@ -17,6 +17,17 @@ public class RecipesController : ControllerBase
         _store = store;
     }
 
+    [HttpGet]
+    public async Task<ActionResult<List<RecipeDto>>> GetAll()             
+    {
+        var recipes = await _store.GetAllAsync();
+
+        // Transform every Recipe into a RecipeDto. Explained in section 7.
+        var dtos = recipes.Select(r => ToDto(r)).ToList();
+
+        return Ok(dtos);   // Ok(x) = status 200 with x serialized as JSON
+    }            
+
     [HttpGet("{id:int}")]
     public async Task<ActionResult<RecipeDtos>> GetById(int id)
     {
