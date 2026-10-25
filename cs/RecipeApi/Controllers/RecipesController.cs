@@ -18,7 +18,7 @@ public class RecipesController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<List<RecipeDto>>> GetAll()             
+    public async Task<ActionResult<List<RecipeDto>>> GetAll()
     {
         var recipes = await _store.GetAllAsync();
 
@@ -26,10 +26,10 @@ public class RecipesController : ControllerBase
         var dtos = recipes.Select(r => ToDto(r)).ToList();
 
         return Ok(dtos);   // Ok(x) = status 200 with x serialized as JSON
-    }            
+    }
 
     [HttpGet("{id:int}")]
-    public async Task<ActionResult<RecipeDtos>> GetById(int id)
+    public async Task<ActionResult<RecipeDto>> GetById(int id)
     {
         var recipe = await _store.GetByIdAsync(id);
 
@@ -42,7 +42,7 @@ public class RecipesController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<RecipeDtos>> Create(CreateRecipeRequest request)
+    public async Task<ActionResult<RecipeDto>> Create(CreateRecipeRequest request)
     {
         var recipe = new Recipe
         {
@@ -62,7 +62,7 @@ public class RecipesController : ControllerBase
 
         return deleted ? NoContent() : NotFound();
     }
-    
-    private static RecipeDtos ToDto(Recipe r) =>
-        new RecipeDtos(r.Id, r.Title, r.Description, r.CreatedAt);
+
+    private static RecipeDto ToDto(Recipe r) =>
+        new RecipeDto(r.Id, r.Title, r.Description, r.CreatedAt);
 }

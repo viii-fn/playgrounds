@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RecipeApi.Dtos;
 
-public record RecipeDtos(int Id, string Title, string Description, DateTime CreatedAt);
+public record RecipeDto(int Id, string Title, string Description, DateTime CreatedAt);
 
 public record CreateRecipeRequest
 {
