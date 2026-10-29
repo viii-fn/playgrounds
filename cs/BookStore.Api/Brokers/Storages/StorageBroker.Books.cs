@@ -13,5 +13,5 @@ internal partial class StorageBroker
         SelectAll<Book>();
 
     public async ValueTask<Book> InsertBookAsync(Book book) =>
-    await InsertAsync(book);
+        await InsertAsync(book);
 }
