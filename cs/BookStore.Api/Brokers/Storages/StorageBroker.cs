@@ -14,4 +14,17 @@ internal partial class StorageBroker : DbContext, IStorageBroker
         base.OnModelCreating(modelBuilder);
         // additional configurations can go here
     }
+
+    private async ValueTask<T> InsertAsync<T>(T @oject)
+    {
+        Entry(@object).State = EntityState.Added;
+        await SaveChangesAsync();
+
+        return @object;
+    }
+
+    private IQueryable<T> SelectAll<T>() where T : class
+    {
+        return Set<T>();
+    }
 }
