@@ -7,7 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<StorageBroker>(options
-    => )
+    => options.UseInMemoryDatabase("BookStoreDb"));
+
+builder.Services.AddScoped<IStorageBroker, StorageBroker>();
 
 var app = builder.Build();
 
