@@ -1,10 +1,10 @@
-// Fix the error below with least amount of modifications
 fn main() {
-    let (mut x, y) = (1, 2);
-    x += 2;
+    let (x, y);
 
-    assert_eq!(x, 3);
-    assert_eq!(y, 2);
+    (x,..) = (3, 4);
+    [.., y] = [1, 2];
+    // Fill the blank between to make the code work
+    assert_eq!([x,y], __);
 
-    println!("Success");
+    println!("Success!");
 }
