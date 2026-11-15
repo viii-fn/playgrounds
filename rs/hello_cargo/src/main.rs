@@ -1,14 +1,10 @@
-// Remove one line from this code to make it compile
+// Fix the error below with least amount of modifications
 fn main() {
-    let mut x: i32 = 1;
-    x = 7;
+    let (x, y) = (1, 2);
+    x += 2;
 
-    // Shadowing and re-binding
-    x += 3;
-
-    let _y: i32 = 4;
-    // Shadowing
-    let _y: &str = "I can also bound to text";
+    assert_eq!(x, 3);
+    assert_eq!(y, 2);
 
     println!("Success");
 }
