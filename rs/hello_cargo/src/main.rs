@@ -6,9 +6,9 @@ fn main() {
     // Shadowing and re-binding
     x += 3;
 
-    let y: i32 = 4;
+    let _y: i32 = 4;
     // Shadowing
-    let y: &str = "I can also bound to text";
+    let _y: &str = "I can also bound to text";
 
     println!("Success");
 }
