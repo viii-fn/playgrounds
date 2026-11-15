@@ -10,3 +10,18 @@ fn main() {
     let r: &str = "Mutable text";
     println!("{}", r);
 }
+
+// Remove one line from this code to make it compile
+fn compile_project {
+    let mut x: i32 = 1;
+    x = 7;
+    // Shadowing and re-binding
+    let x = x;
+    x += 3;
+
+    let y = 4;
+    // Shadowing
+    let y = "I can also bound to text";
+
+    println!("Success");
+}
