@@ -9,6 +9,8 @@
 //!          Iterate with `s.chars()` instead.
 //! HINT 3 ─ `find(' ')` returns `Option<usize>`; slice with `&s[..i]`.
 //! HINT 4 ─ `split_whitespace()` + `chars().next()` is a good combo.
+//! HINT 5 ─ Initials are uppercased. `char::to_ascii_uppercase()` returns a
+//!          `char`; `to_uppercase()` returns an iterator over chars.
 
 fn first_word(text: &str) -> &str {
     // TODO 1: return everything before the first space,
@@ -17,7 +19,8 @@ fn first_word(text: &str) -> &str {
 }
 
 fn initials(name: &str) -> String {
-    // TODO 2: "Ada Lovelace" -> "A.L."
+    // TODO 2: "Ada Lovelace" -> "A.L.", "grace hopper" -> "G.H."
+    //         (uppercase the first letter of each word)
     String::new()
 }
 

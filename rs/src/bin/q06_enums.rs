@@ -43,6 +43,8 @@ fn first_even(numbers: &[i32]) -> Option<i32> {
 fn main() {
     assert_eq!(value_in_cents(&Coin::Quarter), 25);
     assert_eq!(value_in_cents(&Coin::Penny), 1);
+    assert_eq!(value_in_cents(&Coin::Nickel), 5);
+    assert_eq!(value_in_cents(&Coin::Dime), 10);
 
     assert!((area(&Shape::Circle(1.0)) - 3.14159).abs() < 1e-9);
     assert_eq!(area(&Shape::Rect { width: 3.0, height: 2.5 }), 7.5);
