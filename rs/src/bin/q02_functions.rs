@@ -18,7 +18,12 @@ fn gcd(a: u32, b: u32) -> u32 {
 
 fn is_prime(n: u32) -> bool {
     // TODO: return true only if n is prime.
-    false
+    let prime = n/2;
+    if (n/2 = n) {
+        return false;
+    } else {
+        return true;
+    }
 }
 
 fn main() {
