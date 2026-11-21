@@ -1,12 +1,5 @@
 fn main() {
-    let x = 5;
+    let guess: u32 = "42".parse().expect("Not a number");
 
-    let x = x + 1;
-
-    {
-        let x = x * 2;
-        println!("The value of x is: {x}");
-    }
-
-    println!("The value of x is: {x}");
+    println!("{}", guess);
 }
