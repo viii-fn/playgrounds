@@ -1,5 +1,8 @@
 fn main() {
-    let guess: u32 = "42".parse().expect("Not a number");
+    is_prime(28);
+}
 
-    println!("{}", guess);
+fn is_prime(n: u32) -> bool {
+    // TODO: return true only if n is prime.
+    false
 }
